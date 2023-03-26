@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/camisa01.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <title>The Real Lovers</title>
+</head>
+<body>
+    <video id="video-background" preload="auto" autoplay="true" loop="loop" muted="muted">           
+        <source src="assets/background02.mp4" type="video/mp4">
+    </video>
+    <div class="principal-content">
+        <header>
+            <a href="index.html"><img class="logo" src="assets/LOGO.png"></a>
+            <a href="carrinho.html"><img class="bag" src="assets/bag.png"></a>
+        </header>
+        <div class="box-content">
+        <h3 class="titulo">The Real Lovers</h3>
+        <p class="preco">R$ 139,90</p>
+        <h4>Tamanho</h4>
+        <select class="tamanho">        
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+        </select>
+        <h4 class="qtd">Quantidade</h4>
+        <select class="select-qtd">        
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button id="add-to-cart"><a href="carrinho.html">Adicionar ao carrinho</a></button>
+                </div>  
+                <div class="product-image-container">
+                  <img id="product-image" src="assets/Camisa_1_frente.png">
+                  <div class="image-arrows">
+                    <button id="prev-image">&lt;</button>
+                    <button id="next-image">&gt;</button>
+                  </div>
+                </div>                
+        </div>
+    </div>
+    <script>
+      const imagens = [
+          'assets/Camisa_1_costas.png',
+          'assets/Camisa_1_frente.png',
+          'assets/CamisaTheRealLovers.png',
+          'assets/GRADE_DE_TAMANHOS2.png'
+      ];
+  
+      let currentImageIndex = 0;
+      const imgElement = document.getElementById('product-image');
+      const prevImageBtn = document.getElementById('prev-image');
+      const nextImageBtn = document.getElementById('next-image');
+  
+      function changeImage(direction) {
+          currentImageIndex += direction;
+          if (currentImageIndex < 0) {
+              currentImageIndex = imagens.length - 1;
+          } else if (currentImageIndex >= imagens.length) {
+              currentImageIndex = 0;
+          }
+          imgElement.src = imagens[currentImageIndex];
+      }
+  
+      prevImageBtn.addEventListener('click', () => {
+          changeImage(-1);
+      });
+  
+      nextImageBtn.addEventListener('click', () => {
+          changeImage(1);
+      });
+  
+      const addToCartButton = document.querySelector('#add-to-cart');
+
+addToCartButton.addEventListener('click', () => {
+  // criar objeto com as informações da camisa
+  const camisa = {
+    imagem: 'assets/Camisa_1_frente.png',
+    titulo: 'The Real Lovers',
+    preco: 139.9,
+    tamanho: document.querySelector('.tamanho').value,
+    quantidade: document.querySelector('.select-qtd').value
+  };
+
+  // obter o carrinho do localStorage ou criar um novo array
+  const carrinhoString = localStorage.getItem('carrinho');
+  let carrinhoObjeto = JSON.parse(carrinhoString);
+  if (!carrinhoObjeto) {
+    carrinhoObjeto = [];
+  }
+
+  // adicionar a camisa ao carrinho e salvar no localStorage
+  carrinhoObjeto.push(camisa);
+  localStorage.setItem('carrinho', JSON.stringify(carrinhoObjeto));
+
+  // redirecionar para a página do carrinho
+  window.location.href = 'carrinho.html';
+})
+  </script>
+  
+    </body>
+    </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/carrinho.css">
+    <title>Carrinho</title>
+</head>
+<body>
+    <video id="video-background" preload="auto" autoplay="true" loop="loop" muted="muted">           
+        <source src="assets/background02.mp4" type="video/mp4">
+    </video>
+    <div class="principal-content">
+        <header>
+            <a href="index.html"><img class="logo" src="assets/LOGO.png"></a>
+            <a href="carrinho.html"><img class="bag" src="assets/bag.png"></a>
+        </header>
+    <table id="tabela-carrinho">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Preço</th>
+                <th>Tamanho</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+  
+      <a class="limpar" id="limpar" href=" ">Limpar carrinho</a>
+      <a class="finalizar" href=" ">Finalizar compra</a>
+
+
+    <script>
+        const carrinhoString = localStorage.getItem('carrinho');
+        console.log(carrinhoString);
+        const carrinhoObjeto = JSON.parse(carrinhoString);
+// selecionar a tabela
+const tabela = document.querySelector('#tabela-carrinho tbody');
+
+// percorrer os itens do carrinho
+if (carrinhoObjeto) {
+  carrinhoObjeto.forEach(item => {
+    // código para adicionar linhas à tabela
+  });
+} else {
+  console.log('Não há itens no carrinho.');
+}
+// percorrer os itens do carrinho
+if (carrinhoObjeto) {
+  carrinhoObjeto.forEach(item => {
+    // criar uma nova linha na tabela
+    const novaLinha = tabela.insertRow(-1);
+
+    // criar as colunas com as informações do item
+    const tituloColuna = novaLinha.insertCell(0);
+    const precoColuna = novaLinha.insertCell(1);
+    const tamanhoColuna = novaLinha.insertCell(2);
+    const quantidadeColuna = novaLinha.insertCell(3);
+
+    // adicionar as informações do item nas colunas
+    tituloColuna.textContent = item.titulo;
+    precoColuna.textContent = item.preco;
+    tamanhoColuna.textContent = item.tamanho;
+    quantidadeColuna.textContent = item.quantidade;
+  });
+}
+
+// selecionar o elemento com id "limpar"
+const limparBtn = document.querySelector('#limpar');
+
+// adicionar um evento de clique ao botão "Limpar carrinho"
+limparBtn.addEventListener('click', () => {
+  localStorage.clear(); // remover todos os itens do localStorage
+  tabela.innerHTML = ''; // remover todas as linhas da tabela
+});
+
+    </script>
+</body>
+</html>

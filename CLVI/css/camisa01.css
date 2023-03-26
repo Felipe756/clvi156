@@ -1,0 +1,241 @@
+   *{
+    overflow: hidden;
+   }
+   
+   video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
+  
+  .logo{
+  width: 20em;
+  position: absolute;
+  top: 8.9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .user{
+  width: 1.5%;
+  position: absolute;
+  top: 8.2%;
+  left: 86%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .bag{
+  width: 1.5%;
+  position: absolute;
+  top: 8%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .user:hover{
+  transition: 0.3s;
+  width: 3em;
+  }
+  
+  .bag:hover{
+  transition: 0.3s;
+  width: 3em;
+  }
+  
+  .box-content{
+    margin-right: 10em;
+    position: fixed;
+    top: 20%;
+    right: 0;
+    width: 600px;
+    height: 550px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .titulo{
+    color: #fff;
+    transform: translate(20%, 50%);
+    font-size: 3.5em;
+  }
+
+  .preco{
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1.7em;
+  }
+
+  .box-content h4{
+    color: #fff;
+    transform: translate(7%, 500%);
+    font-size: 2.2em;
+  }
+
+  .box-content .qtd{
+    color: #fff;
+    transform: translate(60%, 290%);
+    font-size: 2.2em;
+  }
+  
+  .box-content .tamanho{
+    color: black;
+    transform: translate(20%, 200%);
+    font-size: 2em;
+    width: 5em;
+  }
+
+  .box-content .select-qtd{
+    color: black;
+    float: right;
+    margin-top: 0.2em;
+    margin-right: 2em;
+    font-size: 2em;
+    width: 5em;
+  }
+
+  .image-arrow{
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: white;
+  }
+
+  button#prev-image{
+    z-index: 1;
+    transform: translate(850%, 20%);
+    background-color: #fff;
+    color: white;
+  }
+
+  button{
+        font-size: 18px;
+        background-color: #000;
+        color: #fff;
+        transform: translate(71%, 400%);
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+  }
+
+  button a{
+    text-decoration: none;
+    color: #fff;
+  }
+
+
+  #product-image-container {
+    position: relative;
+    z-index: 0;
+  }
+  
+  #product-image {
+    width: 65em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transform: translate(10%, -5%);
+  }
+
+  button#prev-image {
+    border-radius: 25%;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(1200%, 0%);
+    background-color: #fff;
+  }  
+
+  button#next-image {
+    border-radius: 25%;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(450%, 20%);
+    background-color: #fff;
+  }  
+
+  #product-image[src="assets/CamisaTheRealLovers.png"] {
+    order: 1;
+    width: 25%;
+    transform: translate(77.5%, 45%);
+  }
+
+  #product-image[src="assets/Camisa_1_frente.png"] {
+    order: 2;
+  }
+
+  #product-image[src="assets/Camisa_1_costas.png"]{
+    order: 3;
+  }
+
+  #product-image[src="assets/GRADE_DE_TAMANHOS2.png"]{
+    order: 4;
+    width: 23%;
+    transform: translate(90%, 50%);
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .logo{
+      display: flex;
+      width: 90%;
+      margin: 0 -50px;
+    }
+  
+    .links-content{
+      margin: 0 -50px;
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .logo{
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .links-content{
+        font-size: 0.5em;
+        justify-content: center;
+    }
+    
+  }
+  
+  /* notebooks com tela maior que 1024 pixels de largura */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    .logo{
+
+    }
+  }
+  
+  /* notebooks com tela entre 768 e 1024 pixels de largura */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* estilos para notebooks */
+  }
+  
+  /* notebooks com tela menor que 1024 pixels de largura */
+  @media (min-width: 1024px) {
+    .logo{
+      display: flex;
+      width: 20%;
+      justify-content: center;
+    }
+  
+    .links-content{
+      justify-content: center;
+      font-size: 1em;
+    }
+  }
+  
+  /* desktops com tela entre 1024 e 1200 pixels de largura */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    /* estilos para desktops */
+  }
